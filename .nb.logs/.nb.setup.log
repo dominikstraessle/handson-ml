@@ -1,0 +1,128 @@
+Collecting https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master (from -r /home/nbuser/library/requirements.txt (line 44))
+  Downloading https://github.com/ipython-contrib/jupyter_contrib_nbextensions/tarball/master (20.9MB)
+Collecting jupyter==1.0.0 (from -r /home/nbuser/library/requirements.txt (line 22))
+  Cache entry deserialization failed, entry ignored
+  Using cached https://files.pythonhosted.org/packages/83/df/0f5dd132200728a86190397e1ea87cd76244e42d39ec5e88efd25b2abd7e/jupyter-1.0.0-py2.py3-none-any.whl
+Collecting matplotlib==2.0.2 (from -r /home/nbuser/library/requirements.txt (line 23))
+  Downloading https://files.pythonhosted.org/packages/60/d4/6b6d8a7a6bc69a1602ab372f6fc6e88ef88a8a96398a1a25edbac636295b/matplotlib-2.0.2-cp36-cp36m-manylinux1_x86_64.whl (14.6MB)
+Collecting numexpr==2.6.3 (from -r /home/nbuser/library/requirements.txt (line 24))
+  Downloading https://files.pythonhosted.org/packages/63/5b/340ee2b064ddec88e5c89ca82cc5b057c8f03209d71ecf92dd764c0d9afb/numexpr-2.6.3-cp36-cp36m-manylinux1_x86_64.whl (390kB)
+Collecting numpy==1.13.1 (from -r /home/nbuser/library/requirements.txt (line 25))
+  Cache entry deserialization failed, entry ignored
+  Downloading https://files.pythonhosted.org/packages/59/e2/57c1a6af4ff0ac095dd68b12bf07771813dbf401faf1b97f5fc0cb963647/numpy-1.13.1-cp36-cp36m-manylinux1_x86_64.whl (17.0MB)
+Requirement already satisfied: pandas==0.20.3 in ./anaconda3_501/lib/python3.6/site-packages (from -r /home/nbuser/library/requirements.txt (line 26)) (0.20.3)
+Collecting Pillow==4.2.1 (from -r /home/nbuser/library/requirements.txt (line 27))
+  Downloading https://files.pythonhosted.org/packages/51/c8/e7d35106199d81c9464b704762b42b3a1b9299a453c4265bfbcf28348513/Pillow-4.2.1-cp36-cp36m-manylinux1_x86_64.whl (5.8MB)
+Collecting protobuf==3.4.0 (from -r /home/nbuser/library/requirements.txt (line 28))
+  Downloading https://files.pythonhosted.org/packages/31/65/e5a0f3cdefb79ccbdbf09e8a696be6db087f4b3bd0618e03ec18685266ae/protobuf-3.4.0-cp36-cp36m-manylinux1_x86_64.whl (6.2MB)
+Collecting psutil==5.3.1 (from -r /home/nbuser/library/requirements.txt (line 29))
+  Downloading https://files.pythonhosted.org/packages/d3/0a/74dcbb162554909b208e5dbe9f4e7278d78cc27470993e05177005e627d0/psutil-5.3.1.tar.gz (397kB)
+Collecting scikit-learn==0.19.0 (from -r /home/nbuser/library/requirements.txt (line 30))
+  Downloading https://files.pythonhosted.org/packages/a4/b3/209652a5d60ce4a2a8a35ad893d7565bbb0f87ce043264ba5c9e7de304cd/scikit_learn-0.19.0-cp36-cp36m-manylinux1_x86_64.whl (12.4MB)
+Requirement already satisfied: scipy==0.19.1 in ./anaconda3_501/lib/python3.6/site-packages (from -r /home/nbuser/library/requirements.txt (line 31)) (0.19.1)
+Requirement already satisfied: sympy==1.1.1 in ./anaconda3_501/lib/python3.6/site-packages (from -r /home/nbuser/library/requirements.txt (line 32)) (1.1.1)
+Collecting tensorflow==1.3.0 (from -r /home/nbuser/library/requirements.txt (line 33))
+  Downloading https://files.pythonhosted.org/packages/7c/9f/57e1404fc9345759e4a732c4ab48ab4dd78fd1e60ee1270442b8850fa75f/tensorflow-1.3.0-cp36-cp36m-manylinux1_x86_64.whl (43.5MB)
+Requirement already satisfied: ipython_genutils in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (0.2.0)
+Collecting jupyter_contrib_core>=0.3.3 (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44))
+  Downloading https://files.pythonhosted.org/packages/e6/8f/04a752a8b66a66e7092c035e5d87d2502ac7ec07f9fb6059059b6c0dc272/jupyter_contrib_core-0.3.3-py2.py3-none-any.whl
+Requirement already satisfied: jupyter_core in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (4.4.0)
+Collecting jupyter_highlight_selected_word>=0.1.1 (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44))
+  Downloading https://files.pythonhosted.org/packages/50/d7/19ab7cfd60bf268d2abbacc52d4295a40f52d74dfc0d938e4761ee5e598b/jupyter_highlight_selected_word-0.2.0-py2.py3-none-any.whl
+Collecting jupyter_latex_envs>=1.3.8 (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44))
+  Downloading https://files.pythonhosted.org/packages/98/db/ef83fb7a8dd71a1c38d8cc5484bb5226dcd8dd996483d6ad3d944670c57b/jupyter_latex_envs-1.4.4.tar.gz (855kB)
+Collecting jupyter_nbextensions_configurator>=0.4.0 (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44))
+  Downloading https://files.pythonhosted.org/packages/d1/d8/6bf103e0eafd17caef39c37ff70b8d61bfb21cc8cd91c81ba51755421a34/jupyter_nbextensions_configurator-0.4.0-py2.py3-none-any.whl (466kB)
+Requirement already satisfied: nbconvert>=4.2 in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (5.3.1)
+Requirement already satisfied: notebook>=4.0 in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (5.0.0)
+Requirement already satisfied: pyyaml in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (3.12)
+Requirement already satisfied: tornado in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (4.5.2)
+Requirement already satisfied: traitlets>=4.1 in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (4.3.2)
+Requirement already satisfied: lxml in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (4.1.0)
+Requirement already satisfied: jupyter-console in ./anaconda3_501/lib/python3.6/site-packages (from jupyter==1.0.0->-r /home/nbuser/library/requirements.txt (line 22)) (5.2.0)
+Requirement already satisfied: ipywidgets in ./anaconda3_501/lib/python3.6/site-packages (from jupyter==1.0.0->-r /home/nbuser/library/requirements.txt (line 22)) (7.0.0b7)
+Requirement already satisfied: ipykernel in ./anaconda3_501/lib/python3.6/site-packages (from jupyter==1.0.0->-r /home/nbuser/library/requirements.txt (line 22)) (4.7.0)
+Requirement already satisfied: qtconsole in ./anaconda3_501/lib/python3.6/site-packages (from jupyter==1.0.0->-r /home/nbuser/library/requirements.txt (line 22)) (4.3.1)
+Requirement already satisfied: six>=1.10 in ./anaconda3_501/lib/python3.6/site-packages (from matplotlib==2.0.2->-r /home/nbuser/library/requirements.txt (line 23)) (1.11.0)
+Requirement already satisfied: python-dateutil in ./anaconda3_501/lib/python3.6/site-packages (from matplotlib==2.0.2->-r /home/nbuser/library/requirements.txt (line 23)) (2.6.1)
+Requirement already satisfied: cycler>=0.10 in ./anaconda3_501/lib/python3.6/site-packages (from matplotlib==2.0.2->-r /home/nbuser/library/requirements.txt (line 23)) (0.10.0)
+Requirement already satisfied: pyparsing!=2.0.0,!=2.0.4,!=2.1.2,!=2.1.6,>=1.5.6 in ./anaconda3_501/lib/python3.6/site-packages (from matplotlib==2.0.2->-r /home/nbuser/library/requirements.txt (line 23)) (2.2.0)
+Requirement already satisfied: pytz in ./anaconda3_501/lib/python3.6/site-packages (from matplotlib==2.0.2->-r /home/nbuser/library/requirements.txt (line 23)) (2017.2)
+Requirement already satisfied: olefile in ./anaconda3_501/lib/python3.6/site-packages (from Pillow==4.2.1->-r /home/nbuser/library/requirements.txt (line 27)) (0.44)
+Requirement already satisfied: setuptools in ./anaconda3_501/lib/python3.6/site-packages (from protobuf==3.4.0->-r /home/nbuser/library/requirements.txt (line 28)) (39.0.1)
+Collecting tensorflow-tensorboard<0.2.0,>=0.1.0 (from tensorflow==1.3.0->-r /home/nbuser/library/requirements.txt (line 33))
+  Downloading https://files.pythonhosted.org/packages/93/31/bb4111c3141d22bd7b2b553a26aa0c1863c86cb723919e5bd7847b3de4fc/tensorflow_tensorboard-0.1.8-py3-none-any.whl (1.6MB)
+Requirement already satisfied: wheel>=0.26 in ./anaconda3_501/lib/python3.6/site-packages (from tensorflow==1.3.0->-r /home/nbuser/library/requirements.txt (line 33)) (0.29.0)
+Requirement already satisfied: ipython in ./anaconda3_501/lib/python3.6/site-packages (from jupyter_latex_envs>=1.3.8->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (6.2.1)
+Requirement already satisfied: mistune>=0.7.4 in ./anaconda3_501/lib/python3.6/site-packages (from nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (0.7.4)
+Requirement already satisfied: jinja2 in ./anaconda3_501/lib/python3.6/site-packages (from nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (2.9.6)
+Requirement already satisfied: pygments in ./anaconda3_501/lib/python3.6/site-packages (from nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (2.2.0)
+Requirement already satisfied: nbformat>=4.4 in ./anaconda3_501/lib/python3.6/site-packages (from nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (4.4.0)
+Requirement already satisfied: entrypoints>=0.2.2 in ./anaconda3_501/lib/python3.6/site-packages (from nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (0.2.3)
+Requirement already satisfied: bleach in ./anaconda3_501/lib/python3.6/site-packages (from nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (2.0.0)
+Requirement already satisfied: pandocfilters>=1.4.1 in ./anaconda3_501/lib/python3.6/site-packages (from nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (1.4.2)
+Requirement already satisfied: testpath in ./anaconda3_501/lib/python3.6/site-packages (from nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (0.3.1)
+Requirement already satisfied: decorator in ./anaconda3_501/lib/python3.6/site-packages (from traitlets>=4.1->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (4.1.2)
+Requirement already satisfied: jupyter_client in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-console->jupyter==1.0.0->-r /home/nbuser/library/requirements.txt (line 22)) (5.1.0)
+Requirement already satisfied: prompt_toolkit<2.0.0,>=1.0.0 in ./anaconda3_501/lib/python3.6/site-packages (from jupyter-console->jupyter==1.0.0->-r /home/nbuser/library/requirements.txt (line 22)) (1.0.15)
+Requirement already satisfied: widgetsnbextension~=3.0.0b7 in ./anaconda3_501/lib/python3.6/site-packages (from ipywidgets->jupyter==1.0.0->-r /home/nbuser/library/requirements.txt (line 22)) (3.0.0)
+Requirement already satisfied: werkzeug>=0.11.10 in ./anaconda3_501/lib/python3.6/site-packages (from tensorflow-tensorboard<0.2.0,>=0.1.0->tensorflow==1.3.0->-r /home/nbuser/library/requirements.txt (line 33)) (0.12.2)
+Collecting html5lib==0.9999999 (from tensorflow-tensorboard<0.2.0,>=0.1.0->tensorflow==1.3.0->-r /home/nbuser/library/requirements.txt (line 33))
+  Cache entry deserialization failed, entry ignored
+  Downloading https://files.pythonhosted.org/packages/ae/ae/bcb60402c60932b32dfaf19bb53870b29eda2cd17551ba5639219fb5ebf9/html5lib-0.9999999.tar.gz (889kB)
+Collecting markdown>=2.6.8 (from tensorflow-tensorboard<0.2.0,>=0.1.0->tensorflow==1.3.0->-r /home/nbuser/library/requirements.txt (line 33))
+  Downloading https://files.pythonhosted.org/packages/6d/7d/488b90f470b96531a3f5788cf12a93332f543dbab13c423a5e7ce96a0493/Markdown-2.6.11-py2.py3-none-any.whl (78kB)
+Requirement already satisfied: jedi>=0.10 in ./anaconda3_501/lib/python3.6/site-packages (from ipython->jupyter_latex_envs>=1.3.8->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (0.10.2)
+Requirement already satisfied: pickleshare in ./anaconda3_501/lib/python3.6/site-packages (from ipython->jupyter_latex_envs>=1.3.8->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (0.7.4)
+Requirement already satisfied: simplegeneric>0.8 in ./anaconda3_501/lib/python3.6/site-packages (from ipython->jupyter_latex_envs>=1.3.8->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (0.8.1)
+Requirement already satisfied: pexpect in ./anaconda3_501/lib/python3.6/site-packages (from ipython->jupyter_latex_envs>=1.3.8->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (4.2.1)
+Requirement already satisfied: MarkupSafe>=0.23 in ./anaconda3_501/lib/python3.6/site-packages (from jinja2->nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (1.0)
+Requirement already satisfied: jsonschema!=2.5.0,>=2.4 in ./anaconda3_501/lib/python3.6/site-packages (from nbformat>=4.4->nbconvert>=4.2->jupyter-contrib-nbextensions==0.5.0->-r /home/nbuser/library/requirements.txt (line 44)) (2.6.0)
+Requirement already satisfied: pyzmq>=13 in ./anaconda3_501/lib/python3.6/site-packages (from jupyter_client->jupyter-console->jupyter==1.0.0->-r /home/nbuser/library/requirements.txt (line 22)) (16.0.2)
+Requirement already satisfied: wcwidth in ./anaconda3_501/lib/python3.6/site-packages (from prompt_toolkit<2.0.0,>=1.0.0->jupyter-console->jupyter==1.0.0->-r /home/nbuser/library/requirements.txt (line 22)) (0.1.7)
+Building wheels for collected packages: psutil, jupyter-contrib-nbextensions, jupyter-latex-envs, html5lib
+  Running setup.py bdist_wheel for psutil: started
+  Running setup.py bdist_wheel for psutil: finished with status 'done'
+  Stored in directory: /home/nbuser/.cache/pip/wheels/c0/28/d8/9ce03eb8e57b3f9920f2cf938cd8bfc39d1416e80ac5bddf4e
+  Running setup.py bdist_wheel for jupyter-contrib-nbextensions: started
+  Running setup.py bdist_wheel for jupyter-contrib-nbextensions: finished with status 'done'
+  Stored in directory: /tmp/pip-ephem-wheel-cache-4r0b05h0/wheels/22/4a/9f/df59e985684a10ea0e025300581870b5b3a300ee3525f0eef5
+  Running setup.py bdist_wheel for jupyter-latex-envs: started
+  Running setup.py bdist_wheel for jupyter-latex-envs: finished with status 'done'
+  Stored in directory: /home/nbuser/.cache/pip/wheels/65/c1/0f/b90b6d7032c79ee40181fdadb72b2ef9a186f02269d6c52f02
+  Running setup.py bdist_wheel for html5lib: started
+  Running setup.py bdist_wheel for html5lib: finished with status 'done'
+  Stored in directory: /home/nbuser/.cache/pip/wheels/50/ae/f9/d2b189788efcf61d1ee0e36045476735c838898eef1cad6e29
+Successfully built psutil jupyter-contrib-nbextensions jupyter-latex-envs html5lib
+grpcio 1.11.0 has requirement protobuf>=3.5.0.post1, but you'll have protobuf 3.4.0 which is incompatible.
+bleach 2.0.0 has requirement html5lib>=0.99999999, but you'll have html5lib 0.9999999 which is incompatible.
+tensorflow-tensorboard 0.1.8 has requirement bleach==1.5.0, but you'll have bleach 2.0.0 which is incompatible.
+Installing collected packages: jupyter, numpy, matplotlib, numexpr, Pillow, protobuf, psutil, scikit-learn, html5lib, markdown, tensorflow-tensorboard, tensorflow, jupyter-contrib-core, jupyter-highlight-selected-word, jupyter-latex-envs, jupyter-nbextensions-configurator, jupyter-contrib-nbextensions
+  Found existing installation: numpy 1.14.2
+    Uninstalling numpy-1.14.2:
+      Successfully uninstalled numpy-1.14.2
+  Found existing installation: matplotlib 2.1.1
+    Uninstalling matplotlib-2.1.1:
+      Successfully uninstalled matplotlib-2.1.1
+  Found existing installation: numexpr 2.6.2
+    Uninstalling numexpr-2.6.2:
+      Successfully uninstalled numexpr-2.6.2
+  Found existing installation: Pillow 4.3.0
+    Uninstalling Pillow-4.3.0:
+      Successfully uninstalled Pillow-4.3.0
+  Found existing installation: protobuf 3.4.1
+    Uninstalling protobuf-3.4.1:
+      Successfully uninstalled protobuf-3.4.1
+  Found existing installation: psutil 5.4.0
+    Uninstalling psutil-5.4.0:
+      Successfully uninstalled psutil-5.4.0
+  Found existing installation: scikit-learn 0.19.1
+    Uninstalling scikit-learn-0.19.1:
+      Successfully uninstalled scikit-learn-0.19.1
+  Found existing installation: html5lib 0.999999999
+    Uninstalling html5lib-0.999999999:
+      Successfully uninstalled html5lib-0.999999999
+  Found existing installation: tensorflow 1.1.0
+    Uninstalling tensorflow-1.1.0:
+      Successfully uninstalled tensorflow-1.1.0
+Successfully installed Pillow-4.2.1 html5lib-0.9999999 jupyter-1.0.0 jupyter-contrib-core-0.3.3 jupyter-contrib-nbextensions-0.5.0 jupyter-highlight-selected-word-0.2.0 jupyter-latex-envs-1.4.4 jupyter-nbextensions-configurator-0.4.0 markdown-2.6.11 matplotlib-2.0.2 numexpr-2.6.3 numpy-1.13.1 protobuf-3.4.0 psutil-5.3.1 scikit-learn-0.19.0 tensorflow-1.3.0 tensorflow-tensorboard-0.1.8

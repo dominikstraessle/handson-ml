@@ -1,0 +1,870 @@
+
+% Default to the notebook output style
+
+    
+
+
+% Inherit from the specified cell style.
+
+
+
+
+    
+\documentclass[11pt]{article}
+
+    
+    
+    \usepackage[T1]{fontenc}
+    % Nicer default font (+ math font) than Computer Modern for most use cases
+    \usepackage{mathpazo}
+
+    % Basic figure setup, for now with no caption control since it's done
+    % automatically by Pandoc (which extracts ![](path) syntax from Markdown).
+    \usepackage{graphicx}
+    % We will generate all images so they have a width \maxwidth. This means
+    % that they will get their normal width if they fit onto the page, but
+    % are scaled down if they would overflow the margins.
+    \makeatletter
+    \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth
+    \else\Gin@nat@width\fi}
+    \makeatother
+    \let\Oldincludegraphics\includegraphics
+    % Set max figure width to be 80% of text width, for now hardcoded.
+    \renewcommand{\includegraphics}[1]{\Oldincludegraphics[width=.8\maxwidth]{#1}}
+    % Ensure that by default, figures have no caption (until we provide a
+    % proper Figure object with a Caption API and a way to capture that
+    % in the conversion process - todo).
+    \usepackage{caption}
+    \DeclareCaptionLabelFormat{nolabel}{}
+    \captionsetup{labelformat=nolabel}
+
+    \usepackage{adjustbox} % Used to constrain images to a maximum size 
+    \usepackage{xcolor} % Allow colors to be defined
+    \usepackage{enumerate} % Needed for markdown enumerations to work
+    \usepackage{geometry} % Used to adjust the document margins
+    \usepackage{amsmath} % Equations
+    \usepackage{amssymb} % Equations
+    \usepackage{textcomp} % defines textquotesingle
+    % Hack from http://tex.stackexchange.com/a/47451/13684:
+    \AtBeginDocument{%
+        \def\PYZsq{\textquotesingle}% Upright quotes in Pygmentized code
+    }
+    \usepackage{upquote} % Upright quotes for verbatim code
+    \usepackage{eurosym} % defines \euro
+    \usepackage[mathletters]{ucs} % Extended unicode (utf-8) support
+    \usepackage[utf8x]{inputenc} % Allow utf-8 characters in the tex document
+    \usepackage{fancyvrb} % verbatim replacement that allows latex
+    \usepackage{grffile} % extends the file name processing of package graphics 
+                         % to support a larger range 
+    % The hyperref package gives us a pdf with properly built
+    % internal navigation ('pdf bookmarks' for the table of contents,
+    % internal cross-reference links, web links for URLs, etc.)
+    \usepackage{hyperref}
+    \usepackage{longtable} % longtable support required by pandoc >1.10
+    \usepackage{booktabs}  % table support for pandoc > 1.12.2
+    \usepackage[inline]{enumitem} % IRkernel/repr support (it uses the enumerate* environment)
+    \usepackage[normalem]{ulem} % ulem is needed to support strikethroughs (\sout)
+                                % normalem makes italics be italics, not underlines
+    
+
+    
+    
+    % Colors for the hyperref package
+    \definecolor{urlcolor}{rgb}{0,.145,.698}
+    \definecolor{linkcolor}{rgb}{.71,0.21,0.01}
+    \definecolor{citecolor}{rgb}{.12,.54,.11}
+
+    % ANSI colors
+    \definecolor{ansi-black}{HTML}{3E424D}
+    \definecolor{ansi-black-intense}{HTML}{282C36}
+    \definecolor{ansi-red}{HTML}{E75C58}
+    \definecolor{ansi-red-intense}{HTML}{B22B31}
+    \definecolor{ansi-green}{HTML}{00A250}
+    \definecolor{ansi-green-intense}{HTML}{007427}
+    \definecolor{ansi-yellow}{HTML}{DDB62B}
+    \definecolor{ansi-yellow-intense}{HTML}{B27D12}
+    \definecolor{ansi-blue}{HTML}{208FFB}
+    \definecolor{ansi-blue-intense}{HTML}{0065CA}
+    \definecolor{ansi-magenta}{HTML}{D160C4}
+    \definecolor{ansi-magenta-intense}{HTML}{A03196}
+    \definecolor{ansi-cyan}{HTML}{60C6C8}
+    \definecolor{ansi-cyan-intense}{HTML}{258F8F}
+    \definecolor{ansi-white}{HTML}{C5C1B4}
+    \definecolor{ansi-white-intense}{HTML}{A1A6B2}
+
+    % commands and environments needed by pandoc snippets
+    % extracted from the output of `pandoc -s`
+    \providecommand{\tightlist}{%
+      \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+    \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+    % Add ',fontsize=\small' for more characters per line
+    \newenvironment{Shaded}{}{}
+    \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+    \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+    \newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+    \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+    \newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+    \newcommand{\RegionMarkerTok}[1]{{#1}}
+    \newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+    \newcommand{\NormalTok}[1]{{#1}}
+    
+    % Additional commands for more recent versions of Pandoc
+    \newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+    \newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+    \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+    \newcommand{\ImportTok}[1]{{#1}}
+    \newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+    \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+    \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+    \newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+    \newcommand{\BuiltInTok}[1]{{#1}}
+    \newcommand{\ExtensionTok}[1]{{#1}}
+    \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+    \newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+    \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    \newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+    
+    
+    % Define a nice break command that doesn't care if a line doesn't already
+    % exist.
+    \def\br{\hspace*{\fill} \\* }
+    % Math Jax compatability definitions
+	\def\TeX{\mbox{T\kern-.14em\lower.5ex\hbox{E}\kern-.115em X}}
+	\def\LaTeX{\mbox{L\kern-.325em\raise.21em\hbox{$\scriptstyle{A}$}\kern-.17em}\TeX}
+
+    \def\gt{>}
+    \def\lt{<}
+    % Document parameters
+    \title{01\_the\_machine\_learning\_landscape\_summary}
+    
+    
+    
+
+    % Pygments definitions
+    
+\makeatletter
+\def\PY@reset{\let\PY@it=\relax \let\PY@bf=\relax%
+    \let\PY@ul=\relax \let\PY@tc=\relax%
+    \let\PY@bc=\relax \let\PY@ff=\relax}
+\def\PY@tok#1{\csname PY@tok@#1\endcsname}
+\def\PY@toks#1+{\ifx\relax#1\empty\else%
+    \PY@tok{#1}\expandafter\PY@toks\fi}
+\def\PY@do#1{\PY@bc{\PY@tc{\PY@ul{%
+    \PY@it{\PY@bf{\PY@ff{#1}}}}}}}
+\def\PY#1#2{\PY@reset\PY@toks#1+\relax+\PY@do{#2}}
+
+\expandafter\def\csname PY@tok@gd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gu\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.50,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@gt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.27,0.87}{##1}}}
+\expandafter\def\csname PY@tok@gs\endcsname{\let\PY@bf=\textbf}
+\expandafter\def\csname PY@tok@gr\endcsname{\def\PY@tc##1{\textcolor[rgb]{1.00,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cm\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@vg\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@vm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@mh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@cs\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ge\endcsname{\let\PY@it=\textit}
+\expandafter\def\csname PY@tok@vc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@il\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@go\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.53,0.53}{##1}}}
+\expandafter\def\csname PY@tok@cp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.74,0.48,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@gh\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@ni\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.60,0.60,0.60}{##1}}}
+\expandafter\def\csname PY@tok@nl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.63,0.63,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@no\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.53,0.00,0.00}{##1}}}
+\expandafter\def\csname PY@tok@na\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.49,0.56,0.16}{##1}}}
+\expandafter\def\csname PY@tok@nb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@nd\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@ne\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.82,0.25,0.23}{##1}}}
+\expandafter\def\csname PY@tok@nf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@si\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@s2\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@nt\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@nv\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@s1\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@dl\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ch\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@m\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@gp\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,0.50}{##1}}}
+\expandafter\def\csname PY@tok@sh\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@ow\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.67,0.13,1.00}{##1}}}
+\expandafter\def\csname PY@tok@sx\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@bp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c1\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@fm\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.00,1.00}{##1}}}
+\expandafter\def\csname PY@tok@o\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kc\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@c\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@mf\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@err\endcsname{\def\PY@bc##1{\setlength{\fboxsep}{0pt}\fcolorbox[rgb]{1.00,0.00,0.00}{1,1,1}{\strut ##1}}}
+\expandafter\def\csname PY@tok@mb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@ss\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.10,0.09,0.49}{##1}}}
+\expandafter\def\csname PY@tok@sr\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.53}{##1}}}
+\expandafter\def\csname PY@tok@mo\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kd\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@mi\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.40,0.40,0.40}{##1}}}
+\expandafter\def\csname PY@tok@kn\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@cpf\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.25,0.50,0.50}{##1}}}
+\expandafter\def\csname PY@tok@kr\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@s\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@kp\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@w\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.73,0.73}{##1}}}
+\expandafter\def\csname PY@tok@kt\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.69,0.00,0.25}{##1}}}
+\expandafter\def\csname PY@tok@sc\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sb\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sa\endcsname{\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+\expandafter\def\csname PY@tok@k\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.00,0.50,0.00}{##1}}}
+\expandafter\def\csname PY@tok@se\endcsname{\let\PY@bf=\textbf\def\PY@tc##1{\textcolor[rgb]{0.73,0.40,0.13}{##1}}}
+\expandafter\def\csname PY@tok@sd\endcsname{\let\PY@it=\textit\def\PY@tc##1{\textcolor[rgb]{0.73,0.13,0.13}{##1}}}
+
+\def\PYZbs{\char`\\}
+\def\PYZus{\char`\_}
+\def\PYZob{\char`\{}
+\def\PYZcb{\char`\}}
+\def\PYZca{\char`\^}
+\def\PYZam{\char`\&}
+\def\PYZlt{\char`\<}
+\def\PYZgt{\char`\>}
+\def\PYZsh{\char`\#}
+\def\PYZpc{\char`\%}
+\def\PYZdl{\char`\$}
+\def\PYZhy{\char`\-}
+\def\PYZsq{\char`\'}
+\def\PYZdq{\char`\"}
+\def\PYZti{\char`\~}
+% for compatibility with earlier versions
+\def\PYZat{@}
+\def\PYZlb{[}
+\def\PYZrb{]}
+\makeatother
+
+
+    % Exact colors from NB
+    \definecolor{incolor}{rgb}{0.0, 0.0, 0.5}
+    \definecolor{outcolor}{rgb}{0.545, 0.0, 0.0}
+
+
+
+    
+    % Prevent overflowing lines due to hard-to-break entities
+    \sloppy 
+    % Setup hyperref package
+    \hypersetup{
+      breaklinks=true,  % so long urls are correctly broken across lines
+      colorlinks=true,
+      urlcolor=urlcolor,
+      linkcolor=linkcolor,
+      citecolor=citecolor,
+      }
+    % Slightly bigger margins than the latex defaults
+    
+    \geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+    
+    
+
+    \begin{document}
+    
+    
+    \maketitle
+    
+    
+
+    
+    \section{Was ist Machine Learning?}\label{was-ist-machine-learning}
+
+\textgreater{} Machine Learning ist die Wissenschaft, Computer so zu
+programmieren, dass sie anhand von Daten lernen.
+
+Gelernt wird mit Trainingsdaten(einem Trainingsdatensatz) wobei jedes
+Trainingsbeispiel auch Trainingsdatenpunkt-/Instanz genannt wird
+
+    \section{Warum wird ML verwendet?}\label{warum-wird-ml-verwendet}
+
+ML wird verwendet, wenn: * die Aufgabe zu komplex für herkömmliche
+Aufgaben ist\\
+* eine Menge Handarbeit und lange Regeln geschrieben werden müssten *
+kein bekannter Algorithmus für diese Aufgabe existert * die Aufgabe mit
+sich stark verändernden Daten beschäftigt(ML ist Anpassungsfähig) * man
+riesige Datenmengen besitzt und daraus erkenntnisse gewinnen soll.(auch
+hier ist die Aufgabenstellung komplex)
+
+    \section{Arten von ML}\label{arten-von-ml}
+
+Es wird unterschieden nach: * Überwachtes, unüberwachtes und
+halbüberwachtes Lernen sowie Reinforcement Learning * ständig dazu
+lernen(Online-learning) oder nicht(Batch-Learning) * Vergleicht der
+Algorithmus neue Datenpunkte mit bereits bekannten oder erkenner er
+Muster in den Daten
+
+    \subsection{Überwachtes Lernen}\label{uxfcberwachtes-lernen}
+
+Die Trainingsdaten sind \textbf{gelabelt}(sie enthalten die gewünschten
+Lösungen)
+
+\subsubsection{Beispiele}\label{beispiele}
+
+\begin{itemize}
+\tightlist
+\item
+  Spamfilter -\textgreater{} \textbf{Klassifikation}
+\item
+  Vorhersagen eine Preises(nummerische Grösse) aufgrund von
+  Merkmalen(\textbf{Prädikatoren}) -\textgreater{} \textbf{Regression}
+\end{itemize}
+
+\subsubsection{Algorithmen}\label{algorithmen}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{k-nearest-Neighbors}
+\item
+  \textbf{linear Regression}
+\item
+  \textbf{logistic Regression}
+\item
+  \textbf{Support Vector Machines}
+\item
+  \textbf{decision trees / random forests}
+\item
+  \textbf{neural networks}
+\end{itemize}
+
+    \subsection{Unüberwachtes Lernen}\label{unuxfcberwachtes-lernen}
+
+Es wird versucht ohne Anleitung zu lernen. Die Daten sind nicht
+gelabelt.
+
+\subsubsection{Beispiele}\label{beispiele}
+
+\begin{itemize}
+\tightlist
+\item
+  Visualisierung -\textgreater{} Um grosse Datenmengen zu verstehen
+\item
+  Clustering -\textgreater{} Einteilung anhand von grossen Datenmengen
+  vornehmen
+\item
+  Erkennen von Anomalien
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Abfangen von Produktionsfehlern und entfernen von Ausreissern in
+    Datensätzen
+  \end{itemize}
+\item
+  Lernen von Assoziationsregeln
+\end{itemize}
+
+\subsubsection{Algorithmen}\label{algorithmen}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{Clustering}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    k-Means
+  \item
+    hierarchical Cluster Analysis -\textgreater{} HCA
+  \item
+    Expectaiton Maximation
+  \end{itemize}
+\item
+  Visualizing and Dimensionreduction
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Principal component analysis -\textgreater{} PCA
+  \item
+    Kernel PCA
+  \item
+    locally-linear Embedding(LLE)
+  \item
+    t-distributed stochastic neighbor embedding
+  \end{itemize}
+\item
+  learning with assoziation rules
+
+  \begin{itemize}
+  \tightlist
+  \item
+    apriori
+  \item
+    eclat
+  \end{itemize}
+\end{itemize}
+
+\subsubsection{Dimensionsreduktion}\label{dimensionsreduktion}
+
+Die Daten vereinfachen, ohne Informationen zu verlieren.\\
+Auch \textbf{Extraktion von Merkmalen} genannt.
+
+    \subsection{Halbüberwachtes Lernen}\label{halbuxfcberwachtes-lernen}
+
+Der Grossteil der Trainingsdaten sind \textbf{nichtt} gelabelt, der
+kleine Teil dafür. Meist sind halbüberwachte Algorithmen Mischungen aus
+Überwachten- und Unüberwachten Algorithmen, diese werden einfach
+kobiniert für ein besseres Resultat.
+
+\subsubsection{Beispiele}\label{beispiele}
+
+\begin{itemize}
+\tightlist
+\item
+  Google Photots erkennt mithilfe eines unüberwachten lernens, dass eine
+  Person auf mehreren Fotos sichtbar ist. Aber um zu lernen, wie diese
+  Person heisst, braucht es mindestens einen gelabelten Datensatz mit
+  dem Namen.
+\end{itemize}
+
+\subsubsection{Algorithmen}\label{algorithmen}
+
+\begin{itemize}
+\tightlist
+\item
+  Wie bereits erwähnt, sind dies meist Kombinationen von Überwachtem-
+  und Unüberwachtem Lernen.
+\end{itemize}
+
+    \subsection{Reinforcement Learning / Verstärkendes
+Lernen}\label{reinforcement-learning-verstuxe4rkendes-lernen}
+
+Der \textbf{Agent} hat verschiedene Möglichkeiten zu handeln.\\
+Diese führt er aus und wird danach \textbf{belohnt oder bestraft}(mit
+negativen Belohnungen).\\
+Durch diese Erfahrungen kann der Agent seine \textbf{Policy/Strategie}
+anpassen und weiss das nächste mal, welches die richtige Entscheidung
+ist.
+
+    \section{Batch Learning}\label{batch-learning}
+
+Beim Batch-Lernen wird das System mit allen verfügbaren Daten trainiert
+und danach kann es verwendet werden.\\
+Ein solches System kann allerding nicht mit neuen Daten
+gefüttert/erweitert werden.\\
+Wenn das System trotzdem mit neuen Trainingsdaten erweitert werden soll,
+so muss es nochmals mit allen alten \textbf{und} den neuen
+Trainingsdaten trainiert werden.\\
+Dies benötigt sehr viel ressource, kann teuer werden und das trainierte
+System ist nicht anpassungsfähig.
+
+\section{Online Learning}\label{online-learning}
+
+Die Trainingsdaten werden als erstes in kleine Stücke(batches)
+aufgeteilt, welche dann nacheinander trainiert werden und nach dem
+Training verworfen werden können, ausser man möchte einen alten Zustand
+wiederherstellen können.\\
+Das Aufteilen wird auch \textbf{out-of-core-lernen} genannt. Es werden
+weniger Ressourcen als beim Batch-Lernen benötigt.
+
+Ein Vorteil hier ist auch, das das System anpassungsfähig an neue Daten
+ist.\\
+Die Anpassungsfähigkeit kann eingestellt werden mithilfe einer
+\textbf{Lernrate}. Eine hohe Lernrate führt dazu, dass neues schnell
+angewendet und altes schnell vergessen wird.\\
+Eine tiefe sorgt im Gegenzug für eine gewisse Trägheit des System.
+
+Bei einer hohen Lernrate ist Vorsicht geboten, da Anomalien oder
+gefälschte Trainingsdaten die Qualität beeinflussen. Ein solches System
+sollte überwacht werden oder Anomalien zuvor entfernt werden.
+
+    \section{Instanzbasiertes Lernen}\label{instanzbasiertes-lernen}
+
+Das System wird mit den Trainingsdaten trainiert und lernt diese dadurch
+"Auswendig".\\
+Zusätzlich wird ein \textbf{Ähnlichkeitsmass} festgelegt.
+-\textgreater{} Bei \textbf{k-nearest-Neighbors} etwa die Anzahl
+Nachbarn \textbf{k}.\\
+Mit diesen zwei Dingen kann Verallgemeinert werden und neue Datensätze
+können vorhergesagt werden.(aufgrund der Ähnlichkeit mit bereits
+Trainierten Daten).
+
+\section{Modellbasiertes Lernen}\label{modellbasiertes-lernen}
+
+Das System versucht aus den Trainingsdaten ein Modell zu erstellen,
+welches auf möglichst alle Trainingsdaten möglichst gut zutrifft. Dieses
+Modell kann etwa eine lineare Gleichung sein. Neue Datensätze können in
+die Gleichung eingesetzt und somit vorhergesagt werden. Ein Beispiel ist
+die \textbf{Lineare Regression}.\\
+Die beste Gleichung wird durch den Algorithmus ermittelt.
+
+Der Algorithmus muss die Gleichung anhand der Trainingsdaten verbessern.
+Dazu muss er erst in der Lage sein die \textbf{Leistung der aktuellen
+Gleichung} zu messen.\\
+Dies wird mit einer\\
+* \textbf{Kostenfunktion} -\textgreater{} Wie schlecht ist das Modell?\\
+* Oder mit einer \textbf{Nutzenfunktion} -\textgreater{} Wie gut ist das
+Modell? /Güte des Modells
+
+geprüft.
+
+\subsection{Lineare Gleichung}\label{lineare-gleichung}
+
+Die Parameter \textbf{m} und \textbf{q} werden ermittelt um für
+\textbf{x} eine Vorhersage \textbf{y} zu treffen.\\
+\(y=mx+q\)\\
+\(y=\Theta_0*x+\Theta_1\)\\
+Im ML wird für die Parameter \textbf{m} und \textbf{q} der griechische
+Buchstabe \textbf{\(\Theta\)} verwendet.
+
+    \section{Erstes Beispiel}\label{erstes-beispiel}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}47}]:} \PY{k+kn}{import} \PY{n+nn}{matplotlib}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+         \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+         \PY{k+kn}{from} \PY{n+nn}{sklearn} \PY{k}{import} \PY{n}{linear\PYZus{}model}\PY{p}{,} \PY{n}{neighbors}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}48}]:} \PY{k}{def} \PY{n+nf}{prepare\PYZus{}country\PYZus{}stats}\PY{p}{(}\PY{n}{satisfaction}\PY{p}{,} \PY{n}{bipp}\PY{p}{)}\PY{p}{:}
+             \PY{n}{satisfaction} \PY{o}{=} \PY{n}{satisfaction}\PY{p}{[}\PY{n}{satisfaction}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{INEQUALITY}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{o}{==}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{TOT}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}
+             \PY{n}{satisfaction} \PY{o}{=} \PY{n}{satisfaction}\PY{o}{.}\PY{n}{pivot}\PY{p}{(}\PY{n}{index}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Country}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{columns}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Indicator}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{values}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Value}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+             \PY{n}{bipp}\PY{o}{.}\PY{n}{rename}\PY{p}{(}\PY{n}{columns}\PY{o}{=}\PY{p}{\PYZob{}}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{2015}\PY{l+s+s2}{\PYZdq{}}\PY{p}{:} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{BIPP}\PY{l+s+s2}{\PYZdq{}}\PY{p}{\PYZcb{}}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+             \PY{n}{bipp}\PY{o}{.}\PY{n}{set\PYZus{}index}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{Country}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+             \PY{n}{full\PYZus{}country\PYZus{}stats} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{merge}\PY{p}{(}\PY{n}{left}\PY{o}{=}\PY{n}{satisfaction}\PY{p}{,} \PY{n}{right}\PY{o}{=}\PY{n}{bipp}\PY{p}{,}
+                                           \PY{n}{left\PYZus{}index}\PY{o}{=}\PY{k+kc}{True}\PY{p}{,} \PY{n}{right\PYZus{}index}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+             \PY{n}{full\PYZus{}country\PYZus{}stats}\PY{o}{.}\PY{n}{sort\PYZus{}values}\PY{p}{(}\PY{n}{by}\PY{o}{=}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{BIPP}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+             \PY{n}{remove\PYZus{}indices} \PY{o}{=} \PY{p}{[}\PY{l+m+mi}{0}\PY{p}{,} \PY{l+m+mi}{1}\PY{p}{,} \PY{l+m+mi}{6}\PY{p}{,} \PY{l+m+mi}{8}\PY{p}{,} \PY{l+m+mi}{33}\PY{p}{,} \PY{l+m+mi}{34}\PY{p}{,} \PY{l+m+mi}{35}\PY{p}{]}
+             \PY{n}{keep\PYZus{}indices} \PY{o}{=} \PY{n+nb}{list}\PY{p}{(}\PY{n+nb}{set}\PY{p}{(}\PY{n+nb}{range}\PY{p}{(}\PY{l+m+mi}{36}\PY{p}{)}\PY{p}{)} \PY{o}{\PYZhy{}} \PY{n+nb}{set}\PY{p}{(}\PY{n}{remove\PYZus{}indices}\PY{p}{)}\PY{p}{)}
+             \PY{k}{return} \PY{n}{full\PYZus{}country\PYZus{}stats}\PY{p}{[}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{BIPP}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Life satisfaction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}\PY{o}{.}\PY{n}{iloc}\PY{p}{[}\PY{n}{keep\PYZus{}indices}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}49}]:} \PY{k+kn}{import} \PY{n+nn}{os}
+         \PY{n}{datapath} \PY{o}{=} \PY{n}{os}\PY{o}{.}\PY{n}{path}\PY{o}{.}\PY{n}{join}\PY{p}{(}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{datasets}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{lifesat}\PY{l+s+s2}{\PYZdq{}}\PY{p}{,} \PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{\PYZdq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}50}]:} \PY{c+c1}{\PYZsh{}Laden der Daten}
+         \PY{n}{satisfaction} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{datapath}\PY{o}{+}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{oecd\PYZus{}bli\PYZus{}2015.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{thousands}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{bipp} \PY{o}{=} \PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}csv}\PY{p}{(}\PY{n}{datapath} \PY{o}{+}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{gdp\PYZus{}per\PYZus{}capita.csv}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{thousands}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{,}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{delimiter}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+se}{\PYZbs{}t}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{encoding}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{latin1}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{na\PYZus{}values}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{n/a}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}51}]:} \PY{c+c1}{\PYZsh{}Vorbereiten der Daten}
+         \PY{n}{country\PYZus{}stats} \PY{o}{=} \PY{n}{prepare\PYZus{}country\PYZus{}stats}\PY{p}{(}\PY{n}{satisfaction}\PY{p}{,} \PY{n}{bipp}\PY{p}{)}
+         \PY{n}{x} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{c\PYZus{}}\PY{p}{[}\PY{n}{country\PYZus{}stats}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{BIPP}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+         \PY{n}{y} \PY{o}{=} \PY{n}{np}\PY{o}{.}\PY{n}{c\PYZus{}}\PY{p}{[}\PY{n}{country\PYZus{}stats}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Life satisfaction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}52}]:} \PY{c+c1}{\PYZsh{}Visualisieren}
+         \PY{n}{country\PYZus{}stats}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{scatter}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{x}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{BIPP}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{y}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Life satisfaction}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+         \PY{n}{plt}\PY{o}{.}\PY{n}{show}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_15_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}53}]:} \PY{c+c1}{\PYZsh{}Asuwahl des Algorithmus}
+         \PY{c+c1}{\PYZsh{}Modelbasiert}
+         \PY{c+c1}{\PYZsh{}model = linear\PYZus{}model.LinearRegression()}
+         \PY{c+c1}{\PYZsh{}Instanzbasiert}
+         \PY{n}{model} \PY{o}{=} \PY{n}{neighbors}\PY{o}{.}\PY{n}{KNeighborsRegressor}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}54}]:} \PY{n}{model}\PY{o}{.}\PY{n}{fit}\PY{p}{(}\PY{n}{x}\PY{p}{,} \PY{n}{y}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}54}]:} KNeighborsRegressor(algorithm='auto', leaf\_size=30, metric='minkowski',
+                   metric\_params=None, n\_jobs=1, n\_neighbors=5, p=2,
+                   weights='uniform')
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}46}]:} \PY{c+c1}{\PYZsh{}Vorhersage treffen}
+         \PY{n}{x\PYZus{}new} \PY{o}{=} \PY{p}{[}\PY{p}{[}\PY{l+m+mi}{25000}\PY{p}{]}\PY{p}{]}\PY{c+c1}{\PYZsh{} Pro kopf BIP für Zypern}
+         \PY{n+nb}{print}\PY{p}{(}\PY{n}{model}\PY{o}{.}\PY{n}{predict}\PY{p}{(}\PY{n}{x\PYZus{}new}\PY{p}{)}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+[[5.82]]
+
+    \end{Verbatim}
+
+    \section{Schlechte Daten: Müll rein -\textgreater{} Müll
+raus}\label{schlechte-daten-muxfcll-rein---muxfcll-raus}
+
+\begin{itemize}
+\tightlist
+\item
+  Zu wenig Trainingsdaten
+\item
+  Nicht repräsentative Trainingsdaten
+\item
+  Minderwertige Daten
+\item
+  Irrevelante Merkmale
+\end{itemize}
+
+\subsection{Zu wenig Trainingsdaten}\label{zu-wenig-trainingsdaten}
+
+Hat man sehr viele Trainingsdaten zur verfügung, dann können primitive
+Algorithmen ähnlich gut Vorhersagen wie komplexe Algorithmen. Dies
+zeigt, wie wichtig die Menge an Trainingsdaten ist.\\
+Allerdings sollte man die Algorithmen trotzdem nicht ausser Acht lassen,
+denn auch sie spielen noch eine Rolle, gerade, wenn nicht viele
+Trainingsdaten zur verfügung stehen.
+
+\subsection{Nicht repsäsentative
+Trainingsdaten}\label{nicht-repsuxe4sentative-trainingsdaten}
+
+Die Trainingsdaten sollten mit Vorsicht erhoben werden. Etwa bei einer
+Umfrage über das Kaufverhalten muss darauf geachtet werden, dass alle
+Demografischen Gruppen befragt werden, und von allen auch eine grosse
+Menge.
+
+\subsection{Minderewertige Daten}\label{minderewertige-daten}
+
+Die Daten können lückenhaft sein oder Ausreisser enthalten. Diese
+sollten korrigiert oder entfernt werden.\\
+Man könnte aber auch zwei Systeme trainieren, 1x mit den lückenhaften
+Daten und 1x ohne...
+
+\subsection{Irrevelante Merkmale}\label{irrevelante-merkmale}
+
+\begin{itemize}
+\tightlist
+\item
+  Die Merkmale sollten sorgfältig ausgewählt werden, da das System aus
+  wesentlichen/aussagekräftigen Merkmalen lernen soll.\\
+\item
+  Die Merkmale könnten etwa mit Dimensionsreduktion extrahiert werden
+\item
+  Neue Merkmale könnten erhoben werden.
+\end{itemize}
+
+    \section{Schlechter Algorithmus}\label{schlechter-algorithmus}
+
+\begin{itemize}
+\tightlist
+\item
+  Overfitting
+\item
+  Underfitting
+\end{itemize}
+
+\subsection{Overfitting}\label{overfitting}
+
+Wie Menschen, so können auch Maschinen zu einer \textbf{übermässigen
+Verallgemeinerung} neigen, dies nennt man \textbf{Overfitting}.\\
+Bei ML tritt dies unter folgenden Bedingungen auf: 1. Zu komplexes
+Modell angesichts der Trainingsdaten:\\
+* Zu komplex bedeutet z.B, dass zu viele Parameter erwartet werden. * Zu
+wenig Trainingsdaten * Zu viel Rauschen und Ausreisser(Anomalien) in den
+Trainingsdaten
+
+Dem ersten kann man entgegewirken, indem man ein einfacheres Modell
+wählt oder man legt dem Modell Restriktionen auf, dies nennt man
+\textbf{Regularisieren}.
+
+\(y=mx+q\)\\
+\(y=\Theta_0*x+\Theta_1\)
+
+Man stelle sich nun vor, man würde \(\Theta_1=0\) setzen, dann wäre das
+Modell vereinfacht, da sich nur noch \(\Theta_0\) anpassen kann beim
+Trainieren.\\
+Man spricht hier auch von \textbf{Freiheitsgraden}. Statt zwei
+Freiheitsgraden besitzt das Modell jetzt nur noch einen.\\
+Würde man \(\Theta_1\) nicht gleich \(0\) setzen, aber trotzdem einen
+kleinen Wert erzwingen, so hätte das Modell zwischen 1 und 2
+Freiheitsgraden.
+
+Um diese Regularisierung vorzunehmen, wendet man einen
+\textbf{Hyperparameter} auf die \textbf{Trainingsdaten}(nicht das
+Modell!) an. Dieser Hyperparameter bleibt konstant.\\
+Ein grosser Hyperparameter verhindert zwar Overfitting, reduziert aber
+auch die Leistung des Systems.
+
+\subsection{Underfitting}\label{underfitting}
+
+Der Gegenzug von Overfitting ist Underfitting. Ursachen: * Das Modell
+ist zu einfach für die Realität oder: \textgreater{}Die Realität ist
+komplexer als das Modell
+
+Man kann dies Beheben indem man ein komplexeres Modell wählt, welches
+auch fähig ist die in den Daten enthaltene Sruktur zu lernen, oder man
+verringert die Restriktionen des Modells(z.B. Hyperparameter
+verkleinern).
+
+    \section{Testen und Validieren}\label{testen-und-validieren}
+
+Um die Leistung(Wie gut verallgemeinert ein trainiertes Modell auf neue
+Datenpunkte) zu evaluieren testet man das Modell mit neuen Datenpunkten.
+Die Abweichung bei diesen neuen Datenpunkten nennt man
+\textbf{out-of-sample-error}.
+
+Die Daten aufteilen:\\
+80\% Trainingsdaten\\
+20\% Testdaten
+
+Man möchte den Besten Hyperparameter für ein Modell ermitteln.\\
+Vorgehen:\\
+1. Testdaten und Trainingsdaten festlegen * Die Trainingsdaten werden in
+komplementäre Untermengen eingeteilt(Trainingsdaten und
+Validierungsdaten). * Jedes Modell wird mit einer anderen Kombination
+dieser Untermengen trainiert * Und mit den restlichen Validiert * Das am
+Besten abschneidende Modell wird nun mit den Testdaten getestet um den
+\textbf{Verallgemeinerungsfehler} festzulegen.
+
+\subsection{No-Free-Lunch-Theorem}\label{no-free-lunch-theorem}
+
+Um zu bestimmen ob ein Modell "besser oder schlechter" ist als ein
+anderes, so muss zwingend eine Annahme über die Daten getroffen werden.
+Ohne eine Annahme über die Daten sind alle Modelle gleich gut/schlecht
+geeignet.\\
+\textgreater{}Kein Modell ist a priori(ohne weitere Beweise, hier eine
+Annahme über die Daten) besser als ein anderes.
+
+    \section{Übungen}\label{uxfcbungen}
+
+\textbf{Wie würden sie ML definieren?}\\
+\textgreater{}ML bedeutet Maschinen aus Daten lernen zu lassen um
+Vorhersagen zu treffen.
+
+**Können sie vier Arten von Aufgaben nennen, für die Machine Learning
+geeignet ist? \textgreater{}1. Bilder klassifizieren\\
+* Preis eines Produktes anhand seiner Merkmale bestimmen * Einem Auto
+das Fahren beibringen * Die Kunden in Kategorien einordnen
+
+\textbf{Was ist ein gelabelter Trainingsdatensatz?} \textgreater{}
+Trainingsdaten mit den erwarteten Lösungen, also den erwünschten
+Ergebnissen.\\
+z.B. Bilder welches Klassifiziert werden soll, enthalten zusätzlich die
+Stichworte von dem was darauf abgebildet ist.
+
+\textbf{Was sind die zwei verbreitetesten Aufgaben beim überwachten
+Lernrn?} \textgreater{}1. Spamfilter für Emails * Preisvorhersagen
+aufgrund von Merkmalen
+
+\textbf{Können sie vier verbreitete Aufgaben für unüberwachtes Lernen
+nennen?} \textgreater{}1. Erkennen von Anomalien, etwa in
+Kreditkartentransaktionen * Erkennung von Assoziationen in riesigen
+Datenmengen, vielleicht sieht ein Modell mehr oder anderes als Menschen
+* Visualisierung von riesigen Datenmengen in 2d, oder 3d Diagrammen. *
+Clustering, Einteilungen anhand grosser Daten vornehmen
+
+\textbf{Was für einen ML-Algorithmus würden sie verewnden um einen
+Roboter über verschiedene Unbekannte Oberflächen laufen zu lassen?}
+\textgreater{}Einen Reinforcement-Learning Algorithmus eignet sich dazu,
+da er nicht direkt etwas vorhersagen muss, sondern eine Strategie lernen
+muss.
+
+\textbf{Welche Art Algorithmus würden sie verwenden, um Ihre Kunden in
+unterschiedliche Gruppen einzuteilen?} \textgreater{}Einen Clustering
+oder hierarchischen Clustering Algorithmus.
+
+\textbf{Würden sie die Aufgabe, Spam zu erkennen, als überwachte oder
+unüberwachte Lernaufgabe einstufen?} \textgreater{}Als überwachte, das
+Modell soll mit bereits gelabelten E-Mails trainiert werden.
+
+\textbf{Was ist ein Online-Lernsystem?} \textgreater{}Ein System, bei
+welchem ständig neue Datensätze dazu trainiert werden können. Es ist
+Anpassungsfähig. Die Lernrate bestimmt ob das System träge sein soll
+oder sich schnell an die neuen Daten anpassen soll.
+
+\textbf{Was ist Out-of-Core-Lernen?} \textgreater{}Dies kann bei einem
+Online-Lernsystem angewendet werden. Wenn die Trainingsdaten zu gross
+sind um sie alle im Hauptspeicher zu halten, so wird der
+Trainingsdatensatz in kleine Einheiten(Batches) eingeteilt, welche dann
+nacheinander in den Hauptspeicher geladen, trainiert und verworfen
+werden.
+
+\textbf{Welche Art Lernalgorithmus beruht auf einem Ähnlichkeitsmass, um
+Vorhersagen zu treffen?} \textgreater{}Der k-nearest-Neighbors
+Algorithmus. Er ist ein überwachter Lernalgorithmus.
+
+\textbf{Was ist der Unterschied zwischen einem Modellparameter und einem
+Hyperparameter eines Lernalgorithmus?} \textgreater{}1. Der
+Modellparameter wird während des Trainigs auf das Modell angewendet. Die
+Modellparameter passen sich während des Lernprozesses an. Dies ist das
+eigentliche Lernen. * Der Hyperparameter wird vor dem Training auf alle
+Trainingsdaten angewendet und kommt nie mit dem Modell selber in
+Berührung, er ist ausserdem konstant.
+
+\textbf{Wonach suchen modelbasierte Lernalgorithmen? Welches ist die
+häufigste Strategie, die zum Erfolg führt? Wie treffen sie Vorhersagen?}
+\textgreater{}Sie suchen nach einem Modell, welches Bestmöglich
+verallgemeinert und somit gute Vorhersagen auf neue unbekannte Daten
+treffen kann. Das Modell ist eine Gleichung mit verschiedenen
+trainierten Parametern, wird nun ein neuer Datensatz eingespeisst, so
+rechnet es aus \(x\) das \(y\) aus. Beim trainieren wird ständig die
+Leistung mithilfe einer Kosten- oder Nutzenfunktion(meist ersteres)
+gemessen und die Parameter des Modell werden angepasst, um die Leistung
+bestmöglich zu steigern.
+
+\textbf{Können sie vier der wichtigsten Herausforderungen beim ML
+bennenen?} \textgreater{}1. Overfitting/Underfitting * Zu wenig
+Trainingsdaten * Nicht repräsentative Trainingsdaten * Irrelevante
+Merkmale
+
+\textbf{Welches Problem liegt vor, wenn ihr Modell auf den Trainigsdaten
+ein sehr gute leistung erbringt, aber schlecht auf neue Daten
+verallgemeinert? Nennen sie drei Lösungsansätze} \textgreater{}Das
+Problem ist Overfitting. 1. Ein einfacheres Modell wählen *
+Regularisieren mithilfe von Hyperparametern * Mehr Trainingsdaten
+beschaffen.
+
+\textbf{Was ist ein Testdatensatz, und warum sollte man einen
+verwenden?} \textgreater{}Das Modell wurde mit Trainingsdaten trainiert
+und wird mit diesen eine sehr hohe Leistung erzielen, allerdings ist
+diese nicht Repräsentativ. Die Testdaten werden verwendet um die
+Leistung eines Modells zu bestimmen, da sie für das Modell noch
+unbekannt sind und wie neue reale Daten wirken.
+
+\textbf{Was ist der Zweck eines Validierungsdatensatzes?}
+\textgreater{}Er hilft, aus verschiedenen Varianten/Modellen das Beste
+auszusuchen. Er wird aber nicht zur Bestimmung der Leistung eines
+Modells verwendet.
+
+\textbf{Was kann schiefgehen, wenn sie Hyperparameter mithilfe der
+Testdaten einstellen?} \textgreater{}Der Hyperparameter wird dann so
+eingestelt, dass er zwar auf diese Testdaten eine Höchstleistung
+erzielt. Aber das Modell kann deswegen nicht gut verallgemeinern und
+wird auf neue Datensätze eine weniger gute Leistung erzielen.
+
+\textbf{Was ist Kreuzvalidierung, und warum sollten Sie diese einem
+Validierungsdatensatz vorziehen?} \textgreater{}Dies ist ein Vorgehen um
+Modelle miteinander zu vergleichen, ohne das weitere Daten benötigt
+werden.
+
+
+    % Add a bibliography block to the postdoc
+    
+    
+    
+    \end{document}
