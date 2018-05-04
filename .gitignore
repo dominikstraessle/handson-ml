@@ -11,3 +11,4 @@ my_*
 datasets/words
 datasets/flowers
 datasets/spam
+.git_config.sh
