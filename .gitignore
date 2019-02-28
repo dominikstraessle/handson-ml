@@ -1,3 +1,13 @@
+# Dotenv
+.env
+.env.proxy
+.env.jupyter
+db.env
+# Cert files
+*.pem
+*.key
+*.crt
+
 *.bak
 *.ckpt
 *.old
