@@ -2,13 +2,13 @@
 help:
 	cat Makefile
 run:
-	docker-compose up
+	docker-compose.exe up
 exec:
-	docker-compose exec handson-ml bash
+	docker-compose.exe exec handson-ml bash
 build: stop .FORCE
-	docker-compose build
+	docker-compose.exe build
 rebuild: stop .FORCE
-	docker-compose build --force-rm
+	docker-compose.exe build --force-rm
 stop:
-	docker stop handson-ml || true; docker rm handson-ml || true;
+	docker.exe stop handson-ml || true; docker.exe rm handson-ml || true;
 .FORCE:
