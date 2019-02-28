@@ -4,7 +4,7 @@ help:
 run:
 	docker-compose.exe up
 exec:
-	docker-compose.exe exec handson-ml bash
+	docker-compose.exe exec handson-ml -i bash
 build: stop .FORCE
 	docker-compose.exe build
 rebuild: stop .FORCE
