@@ -7,8 +7,8 @@ services:
       args:
         - username=devel
         - userid=1000
-#        - HTTP_PROXY=$HTTP_PROXY
-#        - HTTPS_PROXY=$HTTP_PROXY
+        - HTTP_PROXY=$HTTP_PROXY
+        - HTTPS_PROXY=$HTTP_PROXY
     container_name: handson-ml
     image: handson-ml
     restart: unless-stopped    
@@ -22,5 +22,5 @@ services:
     volumes:
       - ../:/home/devel/handson-ml
     command: /opt/conda/bin/jupyter notebook --ip='0.0.0.0' --port=8888 --no-browser
-#    env_file:
-#      - ../.env
+    env_file:
+      - ../.env
